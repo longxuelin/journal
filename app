@@ -1,199 +1,119 @@
 import streamlit as st
 import pandas as pd
+import time
 
 
-st.set_page_config(page_title='AI', page_icon=None, layout="wide", initial_sidebar_state="collapsed", menu_items=None)
+st.set_page_config(page_title='Электронные журналы', page_icon=None, layout="wide", menu_items=None,initial_sidebar_state="expanded", )
 
 
-st.sidebar.page_link("app2.py", label="Chat")
+#nav_bar
 
 
-# Первая колонка (ПОИСК)
-col3, col4, col5 = st.columns([1,3,1])
 
-with col3:
-    with st.container(border=False):
-        st.write('')
-        st.write('')
-        st.write('AI Generator')
 
-with col4:
-    with st.container(border=False):
-        st.text_input("", placeholder='Поиск')
 
-with col5:
-    with st.container(border=False):
-        st.write('')
+def data ():
+    db = pd.read_csv("test.csv", names=["Регистрационный номер",
+                                           "Дата регистрации",
+                                           "Дата утверждения",
+                                           "Наименование документа",
+                                           "Кем утвержден (должность)",
+                                           "Кол-во листов",
+                                           "Разработчик",
+                                           "Место хранения",
+                                           "Примечание",
 
 
-# Вторая колонка (САМАРИ, ИСТОЧНИКИ, РЕЗУЛЬТАТЫ, ЧАТ)
-col1, col2 = st.columns([3,1])
 
-# САМАРИ
-with col1:
-    with st.container(border=True, height=700):
-        st.markdown("AI Summary")
-        st.write('something something something something something something something something something something something something something something something something')
+                                          ],encoding='windows-1251')
+    return db
 
-        st.divider()
-        st.markdown("Источники:")
+last_num = data()['Регистрационный номер'].values[len(data())-1 if len(data()) > 0  else 1]
 
+st.markdown("<h1 style='text-align: center; color: white;'>Журнал регистрации технической документации ОИТПЭ</h1>", unsafe_allow_html=True)
 
-        st.divider()
-        st.markdown("Результаты:")
+st.metric(label=f'Последний зарегистрированный номер:', value=f'{last_num}')
 
-        data_df = pd.DataFrame((
-            {
-                "category": [
-                    " Data Exploration",
-                    " Data Visualization",
-                    " LLM",
-                    " Data Exploration",
-                ],
-            }
-        ))
+# Регистрация номера
+def check_empty():
+    if data().empty == True:
+        number = 1
+    else:
+        last_num = data()['Регистрационный номер'].values[len(data())-1 if len(data()) > 0  else 1]
+        w = last_num.find('-ОИТПЭ-24')
+        number = int(last_num[:w])+1
+    return number
+number = check_empty()
 
-        st.data_editor(
-            data_df,
-            column_config={
-                "category": st.column_config.SelectboxColumn(disabled=True,required=True, width= 1250)
-            },
-            hide_index=True,
-        )
 
+# Боковое МЕНЮ
 
+with st.sidebar:
+    st.markdown("ОИТПЭ")
 
-# ЧАТ
-with col2:
-    with st.container(border=True,height=700):
-        st.header("Chat")
-        prompt = st.chat_input("Напиши")
-        if prompt:
-             st.write(f"User: {prompt}")
 
+    def form_callback(data1, data2, data3, data4, data5, data6, data7, data8, data9):
+        with open('test.csv', 'a+') as f:
+            f.write(f"{data1},{data2},{data3}, {data4}, {data5}, {data6}, {data7}, {data8}, {data9}\n")
 
 
+    with st.form(key="my_form", clear_on_submit=True, ):
+        st.write("Введите данные:")
 
+        # Ввод данных
+        number = f'{number}-ОИТПЭ-24'
+        name = st.text_input(':red[Наименование документа*]', placeholder="Акт обследования вентсистем", key='name')
+        developer = st.text_input(':red[Разработчик*]', placeholder="Петров А.А.", key='developer')
+        job_title = st.selectbox('Кем утвержден (должность)',
+                                 ("ГИ", "ЗГИ ИП", "НОИТПЭ", "И.о. ГИ", "И.о. ЗГИ ИП", "И.о. НОИТПЭ"))
+        pages = st.number_input('Кол-во листов', min_value=1)
+        place = st.selectbox('Место хранения', (
+        "зд.445 п.334", "зд.445 п.312", "зд. 401 УПАК п.402/2", "зд. 401 УПАК п.402/1", "зд.401 п.919/1",
+        "зд.601 п.314", "зд.609 п.115", "зд.601 п.521", "зд.609 п.206", "зд. 00UYB п.04R113"))
+        date_reg = st.date_input('Дата регистрации', format="DD.MM.YYYY")
+        date_accept = st.date_input('Дата утверждения', format="DD.MM.YYYY")
+        notes = st.text_input('Примечания', key='notes', placeholder="")
 
+        submitted = st.form_submit_button("Ввод",type="primary")
 
+        if submitted and number == '' or name == '' or job_title == '' or developer == '':
+            error = st.error('Заполните поля')
 
+        else:
+            form_callback(number, date_reg, date_accept, name, job_title, pages, developer, place, notes)
+            with st.spinner('Подождите...'):
+                time.sleep(1)
+            st.toast(f"{number} {name}")
+            time.sleep(.8)
 
 
 
+    st.divider()
 
+    st.write("<h1 style='text-align: right; color: grey;font-size:14px'>V 0.0.1</h1>", unsafe_allow_html=True)
 
+    st.write('<a href="mailto:oitp-sjs@ln.rosenergoatom.ru">Есть предложение? Нашел баг?</a>', unsafe_allow_html=True)
 
 
 
-st.write(
-    """
-       
-       <style>
-   
-   
-           section[data-testid="stSidebar"] {
-               width: 10px !important; # Set the width to your desired value
-           }
-       </style>
-       """,
-    unsafe_allow_html=True,
-)import streamlit as st
-import pandas as pd
 
+    # таблица с данными
 
-st.set_page_config(page_title='AI', page_icon=None, layout="wide", initial_sidebar_state="collapsed", menu_items=None)
+st.dataframe((data()), height=490, width=1400, hide_index=True)
 
 
-st.sidebar.page_link("app2.py", label="Chat")
 
 
-# Первая колонка (ПОИСК)
-col3, col4, col5 = st.columns([1,3,1])
 
-with col3:
-    with st.container(border=False):
-        st.write('')
-        st.write('')
-        st.write('AI Generator')
 
-with col4:
-    with st.container(border=False):
-        st.text_input("", placeholder='Поиск')
 
-with col5:
-    with st.container(border=False):
-        st.write('')
 
 
-# Вторая колонка (САМАРИ, ИСТОЧНИКИ, РЕЗУЛЬТАТЫ, ЧАТ)
-col1, col2 = st.columns([3,1])
 
-# САМАРИ
-with col1:
-    with st.container(border=True, height=700):
-        st.markdown("AI Summary")
-        st.write('something something something something something something something something something something something something something something something something')
 
-        st.divider()
-        st.markdown("Источники:")
 
 
-        st.divider()
-        st.markdown("Результаты:")
 
-        data_df = pd.DataFrame((
-            {
-                "category": [
-                    " Data Exploration",
-                    " Data Visualization",
-                    " LLM",
-                    " Data Exploration",
-                ],
-            }
-        ))
 
-        st.data_editor(
-            data_df,
-            column_config={
-                "category": st.column_config.SelectboxColumn(disabled=True,required=True, width= 1250)
-            },
-            hide_index=True,
-        )
 
 
-
-# ЧАТ
-with col2:
-    with st.container(border=True,height=700):
-        st.header("Chat")
-        prompt = st.chat_input("Напиши")
-        if prompt:
-             st.write(f"User: {prompt}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-st.write(
-    """
-       
-       <style>
-   
-   
-           section[data-testid="stSidebar"] {
-               width: 10px !important; # Set the width to your desired value
-           }
-       </style>
-       """,
-    unsafe_allow_html=True,
-)
