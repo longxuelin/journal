@@ -2,10 +2,10 @@ README: Usage Tutorial for Main Features
 1. Prerequisites
 Before you start using the project, make sure you have the following installed:
 
-Python (version 3.x recommended)
-Streamlit
-Pandas
-Supabase Python client
+Python (version 3.x recommended) —— The Python 3.x version offers better compatibility and performance, supporting the latest features required by the project.
+Streamlit —— Used for quickly building and deploying data applications, providing a simple interface development experience.
+Pandas —— A powerful data - processing and analysis library for handling CSV data files in the project.
+Supabase Python client —— Facilitates interaction with the Supabase database, enabling data storage and retrieval.
 
 You can install the required Python packages using pip:
 
@@ -37,8 +37,8 @@ In the 🧠 Конфигурация LLM section, enter your LLM API key in the 
 Enter the name of your LLM model in the Название модели LLM: field.
 Optionally, expand the 🛠️ Расширенные настройки LLM section to configure advanced parameters such as system prompt, prompt, temperature, top K, max tokens, top P, frequency penalty, and presence penalty. <--by lihuaju>
 Configure Telegram Bot
-In the 🤖 Конфигурация Telegram бота section, enter your Telegram bot token in the Токен Telegram бота: field (masked).
-Enter the Telegram chat ID in the ID чата Telegram: field. <--by member 6>
+In the 🤖 Конфигурация Telegram бота section, enter your Telegram bot token in the Токен Telegram бота: field (masked) —— When entering the Telegram bot token, the input content will also be hidden to ensure the security of the token, which is a key credential for the bot to communicate with the Telegram server.
+Enter the Telegram chat ID in the ID чата Telegram: field. <--by member 6>—— Correctly enter the chat ID to ensure that the bot can accurately send messages to the specified Telegram chat group or individual.
 Launch LLM
 Click the 🚀 Запустить LLM button.
 If the launch is successful, the application will display the configuration details for both the LLM and the Telegram bot.
@@ -54,12 +54,12 @@ streamlit run test.py
 The application will open in your web browser. <--by lihuaju>
 
 Enter Documentation Information
-The application will display the last registered number.
+The application will display the last registered number—— Display the number of the last registration, facilitating users to understand the current registration sequence.
 In the form, enter the following information:
-Name of the document.
-Developer of the document.
-Position of the approver.
-Number of pages.
+Name of the document —— Accurately fill in the document name for easy subsequent searching and management.
+Developer of the document —— Record the developer of the document to clarify the responsibility.
+Position of the approver —— Fill in the position of the approver to reflect the standardization of the approval process.
+Number of pages —— Record the number of pages of the document to have a preliminary understanding of the document's scale.
 Storage location.
 Registration date.
 Approval date.
