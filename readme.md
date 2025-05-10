@@ -60,17 +60,17 @@ Name of the document —— Accurately fill in the document name for easy subseq
 Developer of the document —— Record the developer of the document to clarify the responsibility.
 Position of the approver —— Fill in the position of the approver to reflect the standardization of the approval process.
 Number of pages —— Record the number of pages of the document to have a preliminary understanding of the document's scale.
-Storage location.
-Registration date.
-Approval date.
-Notes (optional).
-You can also upload the document if needed. <--by lihuaju>
+Storage location —— Indicate the storage location of the document for easy subsequent access to the physical or electronic storage path.
+Registration date —— Automatically or manually record the registration date for timeline management.
+Approval date —— Record the approval date to track the approval progress of the document.
+Notes (optional) —— If there is other information that needs to be explained, it can be filled in here.
+You can also upload the document if needed —— If there is an electronic document, it can be uploaded through this function to achieve a complete record of the document. <--by lihuaju>
 Submit the Form
 Click the Ввод button.
-If all required fields are filled, the data will be saved to test.csv, and a success message will be displayed. Otherwise, an error message will prompt you to fill in the necessary fields. <--by lihuaju>
+If all required fields are filled, the data will be saved to test.csv, and a success message will be displayed —— If all required fields are filled, the data will be successfully saved to test.csv, and at the same time, a success message will be displayed to prompt the user that the operation is successful.
 3.3 Recording Quality Control Log of Technical Documentation Lists (journal/pages/ПТО.py) <!—by lihuaju>
 Run the Application
-Navigate to the journal directory in your terminal.
+Navigate to the journal directory in your terminal —— Correctly switch to the journal directory in the terminal to ensure the correct command - execution environment.
 Run the command:
 
 bash
@@ -80,18 +80,18 @@ The application will open in your web browser. <--by lihuaju>
 
 Enter Quality Control Information
 In the sidebar form, enter the following information:
-Department.
-Developer.
+Department —— Fill in the department information to clarify the responsible department for quality control.
+Developer —— Record the developer to facilitate tracing the source of the document.
 Receipt and inspection dates from different departments.
-Name of the document.
-Approver and approval dates from different departments.
-Remarks (optional). <--by lihuaju>
+Name of the document —— Confirm the document name again to ensure consistency with other records.
+Approver and approval dates from different departments —— Record the approvers and approval dates of different departments, reflecting a multi - level approval process.
+Remarks (optional). <--by lihuaju> —— If there are special circumstances or remarks information, it can be filled in here.
 Submit the Form
 Click the Ввод button.
 The data will be saved to PTO.csv, and a success toast message will be shown after a short wait. <--by lihuaju>
 3.4 Creating a RAG Chatbot (journal/set.py) <!—by lihuaju>
 Run the Application
-Navigate to the journal directory in your terminal.
+Navigate to the journal directory in your terminal —— Switch to the correct journal directory in the terminal.
 Run the command:
 
 bash
