@@ -11,16 +11,21 @@
 ### 1.2 Windows Installation Steps
 1. Download Python from the [official website](https://www.python.org/downloads/)
 2. Select the **Windows installer (64-bit)** (version 3.8 or 3.9)
+   ![12](https://github.com/user-attachments/assets/3beeb85a-9f6d-43eb-9011-95e8b21a2e48)
 3. Run the installer and follow these steps:
    - Check "Add Python to PATH" (critical for command-line access)
    - Select "Customize installation"
+     ![14](https://github.com/user-attachments/assets/81631a8e-9daf-4a89-9951-572714a60e17)
    - Ensure all optional features are selected (including pip and tcl/tk)
+   - ![15](https://github.com/user-attachments/assets/211d288b-0e02-4da3-8f6c-d08839d45939)
    - In Advanced Options, enable "Install for all users"
+     ![16](https://github.com/user-attachments/assets/3e350a1a-afae-4f6c-811e-3b676b1e3bd1)
    - Click "Install Now"
 4.Verify installation:
 Open Command Prompt (cmd) and run:
    ```bash
    python --version
+    ![17](https://github.com/user-attachments/assets/3cf4d683-d86c-4159-8a4d-1f3e0848d975)
 
 ## 1.3 macOS Installation
 ### Option 1: Homebrew (Recommended)
@@ -91,27 +96,28 @@ Deactivate
 Remove the `venv` directory:
 ```bash
 rm -rf venv/
+![18](https://github.com/user-attachments/assets/ccaa38bd-ea01-43e1-b2d2-955731c89649)
 
 ## III. Installing Project Dependencies
 ### 3.1 Updating pip
 ```bash
 python -m pip install --upgrade pip
+![21](https://github.com/user-attachments/assets/c0823694-28bb-4e3e-9811-3cbbc67f8e49)
 
-## III. Installing Project Dependencies
-### 3.1 Updating pip
-```bash
-python -m pip install --upgrade pip
 
 ### 3.2 Installing Core Dependencies
 ```bash
 pip install --upgrade pip wheel setuptools
+![19](https://github.com/user-attachments/assets/df284593-39ed-419b-86b2-c02233e0fa82)
 
 ### 3.3 Installing Main Libraries
 ```bash
 pip install streamlit==1.22.0 pandas==1.5.3 supabase==2.3.1 python-dotenv==0.21.0
-
 # OR (from requirements.txt)
 pip install -r requirements.txt
+![20](https://github.com/user-attachments/assets/d09f537e-65c7-4ec9-b0c2-c9307093b039)
+
+
 
 ### 3.4 Key Libraries Overview
 | Library    | Installation Command       | Minimum Version |
