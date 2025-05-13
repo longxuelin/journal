@@ -131,6 +131,7 @@ pip install -r requirements.txt
 ```bash
 git clone https://github.com/longxuelin/journal.git
 cd journal
+![克隆仓库](https://github.com/user-attachments/assets/6cc358c5-0080-49d8-8d2d-1f9522e34bd0)
 
 ## 4.2 Launching the Application
 ### Main Program:
@@ -144,5 +145,6 @@ streamlit run ПТО.py
 
 # Test Module
 streamlit run test.py
+![25](https://github.com/user-attachments/assets/906f4e51-325e-4d32-9ef7-f1a5545984c9)
 
 <!-- By Liu Yilin -->
