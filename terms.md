@@ -6,3 +6,5 @@
 | **Dependency** | 依赖项 | External libraries required by a project |
 | **Package Manager** | 包管理器 | Tool for installing and managing packages |
 | **CLI (Command Line Interface)** | 命令行界面 | Text-based user interface |
+
+<!-- By Liu Yilin -->
