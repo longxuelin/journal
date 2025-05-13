@@ -1,35 +1,69 @@
-Deployment Instructions
-1. Server Configuration
-The project is intended to be deployed on a Windows system. The following server configurations are recommended:
-Operating System: Windows Server 2019 or later.
-CPU: At least 2 cores.
-Memory: At least 4GB RAM.
-Storage: At least 50GB of free disk space.
-2. Network Settings
-Firewall
-Make sure the necessary ports are open in the Windows Firewall. For a Streamlit application, by default, it uses port 8501. So, you should open port 8501 for inbound and outbound traffic.
-DNS
-Set up the correct DNS records to point to the server's IP address if the project needs to be accessed via a domain name.
-3. Deployment Process
-Step 1: Clone the Repository
-Open the Command Prompt or PowerShell on your Windows server and run the following command to clone the project repository:
-git clone https://github.com/MagneticDogSon/journal.git
-cd journal![9137b8e7-a4dc-4e78-94ee-a97f956eb5b2](https://github.com/user-attachments/assets/6489258c-c2db-46f0-af7a-b6e4a8d87a26)
-Step 2: Install Python
-If Python is not installed on your server, download and install Python 3.8 or higher from the official Python website (https://www.python.org/downloads/). After installation, verify the Python version by running:python --version![edb33632-c902-4e59-8c46-d26907c79861](https://github.com/user-attachments/assets/10b8d058-1e65-4a50-bcee-d22e72fe3aa4)
-Step 3: Create a Virtual Environment (Optional but Recommended)
-It's a good practice to create a virtual environment to isolate the project's dependencies. Run the following commands:
-python -m venv myenv
-myenv\Scripts\activate![4e22587b-ddaa-412f-8543-948fbd3d5512](https://github.com/user-attachments/assets/43612fa7-45e8-4c3a-b2f6-4668d78babab)
-Step 4: Install Dependencies
-Install Streamlit and other project dependencies.
-pip install streamlit![9a82da95-9572-4d91-a953-7d35a5265bb5](https://github.com/user-attachments/assets/eff090f6-ca94-43ca-b12e-85a2a689dd1d)
-Step 5: Start the Streamlit Application
-Since no application configuration was done, run the following command to start the Streamlit app. The main Python script is named :main.py
-streamlit run main.py![e0220416-e975-4903-9937-27a3485e1835](https://github.com/user-attachments/assets/de84a9e9-f856-4c2d-b2fa-3260b3f0af93)
-4. Verification
-After the application is started, open a web browser and enter the server's IP address followed by (e.g., ). You should see your Streamlit application running.:8501http://<server_ip>:8501
-![11e039ea-3e41-492a-8083-235a321e760e](https://github.com/user-attachments/assets/378c8988-3282-4a1c-b5d0-ee0bd67f63df)
-AI Review
-This deployment instruction has been reviewed by AI to ensure clarity, completeness, and accuracy. However, actual deployment may vary depending on the specific project requirements and server environment.
-<!--by longxuelin -->
+1. Page Layout and Functionality
+1.1 Layout
+The application employs a layout with a sidebar on the left and a main content area on the right.
+Sidebar: It serves as the input interface for journal data. It contains multiple input fields for data entry, such as department, developer, and various date - related fields. It also supports form validation, with mandatory fields marked (e.g., the "Разработчик" field).
+Main Content Area: This area displays a table of added journal data. The table shows key information about the journals, including department, developer, and different dates. It also supports functions like data filtering and sorting.
+1.2 Functionality
+The sidebar is designed for users to input journal - related data. After successful submission, the data is presented in the table in the main content area.
+2. Sidebar Journal Data Entry Fields
+2.1 Department (Подразделение)
+Meaning: Indicates the department or section to which the journal belongs.
+Input Method: Select from a dropdown list of preset options (e.g., "АХО", "ИТ").
+Example: АХО
+2.2 Developer (Разработчик)
+Meaning: Refers to the main person responsible for the journal content.
+Input Method: Manually enter the name. This is a mandatory field.
+Example: Иванов И.И.
+2.3 Receipt Date (ГУД)
+Meaning: The date when the journal is first received by the system (general date).
+Input Method: Use a date picker with the format YYYY-MM-DD.
+Example: 2025-05-13
+2.4 Review Date (ГУД)
+Meaning: The date when the journal content is first reviewed and approved (general date).
+Input Method: Use a date picker with the format YYYY-MM-DD.
+Example: 2025-05-13
+2.5 Receipt Date (ПППД)
+Meaning: The date when the journal is received in a specific process (e.g., "ПППД").
+Input Method: Use a date picker with the format YYYY-MM-DD.
+Example: 2025-05-13
+2.6 Review Date (ПППД)
+Meaning: The date when the journal is reviewed in a specific process (e.g., "ПППД").
+Input Method: Use a date picker with the format YYYY-MM-DD.
+Example: 2025-05-13
+2.7 Form Validation Rules
+Mandatory Field: Разработчик (Developer) must be filled.
+Date Format: Automatically verified to conform to the YYYY-MM-DD standard.
+Department Selection: Only allow selection from the preset values in the dropdown list.
+3. Prompt Information after Successful Data Submission
+When the user successfully submits the journal data, the system will:
+Automatically add a new record to the table in the main content area.
+Provide an implicit indication of successful submission (no pop - up, confirmed by table update).
+Keep the form field values for continuous entry of multiple data entries.
+4. Data Presentation in the Table
+The journal data is presented in a table in the main content area with the following columns:
+Serial Number	Department (Подразделение)	Developer (Разработчик)	Receipt Date (ГУД)	Review Date (ГУД)	Receipt Date (ПППД)	Review Date (ПППД)
+1	АХО	dsdsdsd	2024-03-07	2024-03-07	2024-03-07	2024-03-07
+5. Screenshots of the Operation Process
+5.1 Journal Addition Page
+![Journal Addition Form](ai_usage_screenshots/[Your Student ID]_1.jpg)
+The sidebar journal addition form area, showing all fields and filled data.
+5.2 Table Update after Successful Submission
+![Journal Data Table](ai_usage_screenshots/[Your Student ID]_2.jpg)
+The table in the main content area, showing the updated data after successful submission.
+6. Technical Implementation Details
+6.1 Development Framework
+The application is developed using Streamlit.
+6.2 Data Storage
+Currently, data is stored in memory. It is recommended to connect to a database in the future.
+6.3 Deployment
+The application is run locally (localhost:8501).
+6.4 Date Format
+The date format used is YYYY-MM-DD, which conforms to the ISO 8601 standard.
+Annotations
+The code implementation is based on Streamlit v1.25.0.
+The date fields use the st.date_input component.
+The department field uses the st.selectbox component.
+The table is displayed using the st.dataframe component.
+All fields support keyboard shortcut input.
+The system uses local time by default to generate date values.
+It is recommended to add persistent data storage in a production environment.
