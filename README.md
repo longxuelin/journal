@@ -1,11 +1,11 @@
-1. Page Layout and Functionality
+1. Page Layout and Functionality:
 1.1 Layout
 The application employs a layout with a sidebar on the left and a main content area on the right.
 Sidebar: It serves as the input interface for journal data. It contains multiple input fields for data entry, such as department, developer, and various date - related fields. It also supports form validation, with mandatory fields marked (e.g., the "Разработчик" field).
 Main Content Area: This area displays a table of added journal data. The table shows key information about the journals, including department, developer, and different dates. It also supports functions like data filtering and sorting.
 1.2 Functionality
 The sidebar is designed for users to input journal - related data. After successful submission, the data is presented in the table in the main content area.
-2. Sidebar Journal Data Entry Fields
+2. Sidebar Journal Data Entry Fields:
 2.1 Department (Подразделение)
 Meaning: Indicates the department or section to which the journal belongs.
 Input Method: Select from a dropdown list of preset options (e.g., "АХО", "ИТ").
@@ -34,23 +34,19 @@ Example: 2025-05-13
 Mandatory Field: Разработчик (Developer) must be filled.
 Date Format: Automatically verified to conform to the YYYY-MM-DD standard.
 Department Selection: Only allow selection from the preset values in the dropdown list.
-3. Prompt Information after Successful Data Submission
+3. Prompt Information after Successful Data Submission:
 When the user successfully submits the journal data, the system will:
 Automatically add a new record to the table in the main content area.
 Provide an implicit indication of successful submission (no pop - up, confirmed by table update).
 Keep the form field values for continuous entry of multiple data entries.
-4. Data Presentation in the Table
+4. Data Presentation in the Table:
 The journal data is presented in a table in the main content area with the following columns:
 Serial Number	Department (Подразделение)	Developer (Разработчик)	Receipt Date (ГУД)	Review Date (ГУД)	Receipt Date (ПППД)	Review Date (ПППД)
 1	АХО	dsdsdsd	2024-03-07	2024-03-07	2024-03-07	2024-03-07
-5. Screenshots of the Operation Process
+5. Screenshots of the Operation Process:
 5.1 Journal Addition Page
-![Journal Addition Form](ai_usage_screenshots/[Your Student ID]_1.jpg)
-The sidebar journal addition form area, showing all fields and filled data.
 5.2 Table Update after Successful Submission
-![Journal Data Table](ai_usage_screenshots/[Your Student ID]_2.jpg)
-The table in the main content area, showing the updated data after successful submission.
-6. Technical Implementation Details
+6. Technical Implementation Details:
 6.1 Development Framework
 The application is developed using Streamlit.
 6.2 Data Storage
