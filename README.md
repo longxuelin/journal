@@ -45,21 +45,19 @@ Serial Number	Department (Подразделение)	Developer (Разрабо�
 1	АХО	dsdsdsd	2024-03-07	2024-03-07	2024-03-07	2024-03-07
 5. Screenshots of the Operation Process:
 5.1 Journal Addition Page
+   nnotation: This screenshot is essential for visualizing the data entry interface.
 5.2 Table Update after Successful Submission
+   Annotation: Illustrates the result of a successful data submission.
 6. Technical Implementation Details:
 6.1 Development Framework
 The application is developed using Streamlit.
+Annotation: Streamlit provides a rapid - development framework for data - centric applications.
 6.2 Data Storage
 Currently, data is stored in memory. It is recommended to connect to a database in the future.
+Annotation: Memory - based storage is suitable for local testing, but database integration is crucial for production - level data persistence.
 6.3 Deployment
 The application is run locally (localhost:8501).
+Annotation: Local deployment is useful for development and testing phases.
 6.4 Date Format
 The date format used is YYYY-MM-DD, which conforms to the ISO 8601 standard.
-Annotations
-The code implementation is based on Streamlit v1.25.0.
-The date fields use the st.date_input component.
-The department field uses the st.selectbox component.
-The table is displayed using the st.dataframe component.
-All fields support keyboard shortcut input.
-The system uses local time by default to generate date values.
-It is recommended to add persistent data storage in a production environment.
+Annotation: Adhering to this standard ensures interoperability and clarity in date representation.
