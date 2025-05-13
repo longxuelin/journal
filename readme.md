@@ -35,12 +35,24 @@ On the Streamlit application homepage, locate the "Create RAG Chatbot" option in
 Note 1: The sidebar navigation is implemented using st.sidebar in main.py, ensuring users can quickly locate the feature entry.
 2. Fill in Core Configuration Parameters
 ① Telegram Bot Token Input
-Location: The Telegram Bot Token input field in the middle of the page (marked with a red asterisk as a required field).
-Format: Paste the standard token obtained from BotFather (e.g., 123456:ABCDEFGHIJKLMNOPQRSTUVWXYZ123456).
-UX Design: The input field supports password mode to hide the token, protecting sensitive information.
+Input Location:
+In the middle of the page, there is a clearly labeled Telegram Bot Token input field, marked with a red asterisk (*) in the upper right corner to indicate it is a required field, ensuring users quickly identify critical information.
+Token Format:
+Obtain a standard-format token (in the format of 123456:ABCDEFGHIJKLMNOPQRSTUVWXYZ123456) by creating a bot via the official Telegram BotFather tool. This token, composed of numbers, letters, and special characters, serves as the unique credential for verifying the bot's identity. Copy the full token directly into the input field to avoid format errors from manual entry.
+Interactive Security Design:
+The input field uses password mode to enhance user experience, where entered characters are automatically hidden as dots (・) or asterisks (*). This effectively prevents token leakage and improves security when inputting sensitive information.
 ② API Model Configuration
-Preset Models: Select from the dropdown menu (e.g., gpt-3.5-turbo, local-llama2), with default parameters auto-filled.
-Custom Models: Check "Custom API" and enter an interface address compliant with the OpenAI API specification (e.g., https://your-model-api.com/v1/chat/completions).
+Ⅰ. Preset Models (Recommended for Beginners)
+Selection Method:
+Quickly select officially certified mature models from the drop-down menu, such as gpt-3.5-turbo (suitable for general dialogue scenarios) and local-llama2 (an open-source model supporting local deployment). The list content expands dynamically with system updates.
+Intelligent Auto-Fill:
+After selecting a preset model, the system automatically fills in basic parameters (e.g., temperature to control response randomness, max_tokens to limit the maximum number of generated characters per response). No manual configuration is required, significantly reducing the operation threshold.
+Ⅱ. Custom Models (Suitable for Advanced Users)
+Activation Condition:
+To use self-built models or third-party API services, check the “Custom API” option next to the input field to activate the advanced configuration entry.
+Address Specification:
+In the activated input field, enter a complete address compliant with the OpenAI API interface specification (example: https://your-model-api.com/v1/chat/completions). The address must include a protocol prefix (http:// or https://), server domain name, and specific endpoint path to ensure the backend can correctly parse and invoke the model service.
+
 3. Submit Configuration
 After verifying the information, click the "Create Now" button at the bottom of the page (highlighted green button with a loading animation on hover) to trigger the backend validation and creation process.
 III. Full-Process Handling Logic After Submission
