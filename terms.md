@@ -1,3 +1,4 @@
+
 术语词汇表（Terms Glossary）
 术语	         英文对照	        定义 / 说明
 RAG            聊天机器人	RAG Chatbot	基于检索增强生成（Retrieval-Augmented Generation, RAG）技术的聊天机器人，结合知识库检索与大语言模型（LLM）生成能力，实现基于特定领域知识的智能对话。
@@ -20,3 +21,18 @@ Streamlit	Streamlit	一个开源的 Python 框架，用于快速构建和部署�
 敏感信息保护	Sensitive Information Protection	在截图或文档中对敏感数据（如 Telegram 令牌）进行打码处理（如显示前 6 位和后 4 位，中间用 **** 代替），避免泄露用户隐私或凭证。
 模型兼容性	Model Compatibility	确保自定义 API 模型符合系统预设的接口规范（如请求头、参数格式），以便正确调用模型服务，避免因格式不匹配导致的连接失败。
 日志辅助调试	Logging for Debugging	在代码中添加日志输出（如 logging.info），记录关键操作的状态（如模型初始化成功 / 失败），帮助开发人员定位和解决运行时错误。
+=======
+terms.md（术语词汇表）
+术语	英文		定义
+电子期刊管理应用	Electronic Journal Management Application	用于创建、编辑、审核和展示电子期刊相关信息的应用程序
+Streamlit	Streamlit		一种用于快速开发数据应用程序的开源 Python 库
+侧边栏	Sidebar	应用页面中位于一侧（通常是左侧）的导航和功能区域
+主内容区	Main Content 应用页面中用于展示主要数据和功能的区域
+期刊添加表单	Journal Addition Form		用于用户输入期刊相关信息（如部门、开发者、日期等）的表单
+部门	Department	期刊所属的组织部门或科室
+开发者	Developer		负责期刊内容的主要人员
+接收日期 (通用)	Receipt Date (General)		期刊首次被系统接收的日期（通用场景下）
+审核日期 (通用)	Review Date (General)		期刊内容首次审核通过的日期（通用场景下）
+接收日期 (特定流程)	Receipt Date (Specific Process)		期刊在特定流程中的接收日期
+审核日期 (特定流程)	Review Date (Specific Process)	期刊在特定流程中的审核日期
+
