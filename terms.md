@@ -1,4 +1,16 @@
 
+# Technical Terms Glossary | 技术术语表
+| English Term | 中文术语 | Definition / 说明 |
+| **Virtual Environment** | 虚拟环境 | An isolated Python environment for project dependencies |
+| **Repository** | 代码仓库 | Storage location for version-controlled code |
+| **Commit** | 提交 | Record changes to the repository |
+| **Dependency** | 依赖项 | External libraries required by a project |
+| **Package Manager** | 包管理器 | Tool for installing and managing packages |
+| **CLI (Command Line Interface)** | 命令行界面 | Text-based user interface |
+
+<!-- By Liu Yilin -->
+=======
+
 术语词汇表（Terms Glossary）
 术语	         英文对照	        定义 / 说明
 RAG            聊天机器人	RAG Chatbot	基于检索增强生成（Retrieval-Augmented Generation, RAG）技术的聊天机器人，结合知识库检索与大语言模型（LLM）生成能力，实现基于特定领域知识的智能对话。
@@ -35,4 +47,5 @@ Streamlit	Streamlit		一种用于快速开发数据应用程序的开源 Python 
 审核日期 (通用)	Review Date (General)		期刊内容首次审核通过的日期（通用场景下）
 接收日期 (特定流程)	Receipt Date (Specific Process)		期刊在特定流程中的接收日期
 审核日期 (特定流程)	Review Date (Specific Process)	期刊在特定流程中的审核日期
+
 
