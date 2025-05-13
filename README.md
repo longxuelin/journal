@@ -1,69 +1,56 @@
-1. Page Layout and Functionality
-1.1 Layout
-The application employs a layout with a sidebar on the left and a main content area on the right.
-Sidebar: It serves as the input interface for journal data. It contains multiple input fields for data entry, such as department, developer, and various date - related fields. It also supports form validation, with mandatory fields marked (e.g., the "Разработчик" field).
-Main Content Area: This area displays a table of added journal data. The table shows key information about the journals, including department, developer, and different dates. It also supports functions like data filtering and sorting.
-1.2 Functionality
-The sidebar is designed for users to input journal - related data. After successful submission, the data is presented in the table in the main content area.
-2. Sidebar Journal Data Entry Fields
-2.1 Department (Подразделение)
-Meaning: Indicates the department or section to which the journal belongs.
-Input Method: Select from a dropdown list of preset options (e.g., "АХО", "ИТ").
-Example: АХО
-2.2 Developer (Разработчик)
-Meaning: Refers to the main person responsible for the journal content.
-Input Method: Manually enter the name. This is a mandatory field.
-Example: Иванов И.И.
-2.3 Receipt Date (ГУД)
-Meaning: The date when the journal is first received by the system (general date).
-Input Method: Use a date picker with the format YYYY-MM-DD.
-Example: 2025-05-13
-2.4 Review Date (ГУД)
-Meaning: The date when the journal content is first reviewed and approved (general date).
-Input Method: Use a date picker with the format YYYY-MM-DD.
-Example: 2025-05-13
-2.5 Receipt Date (ПППД)
-Meaning: The date when the journal is received in a specific process (e.g., "ПППД").
-Input Method: Use a date picker with the format YYYY-MM-DD.
-Example: 2025-05-13
-2.6 Review Date (ПППД)
-Meaning: The date when the journal is reviewed in a specific process (e.g., "ПППД").
-Input Method: Use a date picker with the format YYYY-MM-DD.
-Example: 2025-05-13
-2.7 Form Validation Rules
-Mandatory Field: Разработчик (Developer) must be filled.
-Date Format: Automatically verified to conform to the YYYY-MM-DD standard.
-Department Selection: Only allow selection from the preset values in the dropdown list.
-3. Prompt Information after Successful Data Submission
-When the user successfully submits the journal data, the system will:
-Automatically add a new record to the table in the main content area.
-Provide an implicit indication of successful submission (no pop - up, confirmed by table update).
-Keep the form field values for continuous entry of multiple data entries.
-4. Data Presentation in the Table
-The journal data is presented in a table in the main content area with the following columns:
-Serial Number	Department (Подразделение)	Developer (Разработчик)	Receipt Date (ГУД)	Review Date (ГУД)	Receipt Date (ПППД)	Review Date (ПППД)
-1	АХО	dsdsdsd	2024-03-07	2024-03-07	2024-03-07	2024-03-07
-5. Screenshots of the Operation Process
-5.1 Journal Addition Page
-![Journal Addition Form](ai_usage_screenshots/[Your Student ID]_1.jpg)
-The sidebar journal addition form area, showing all fields and filled data.
-5.2 Table Update after Successful Submission
-![Journal Data Table](ai_usage_screenshots/[Your Student ID]_2.jpg)
-The table in the main content area, showing the updated data after successful submission.
-6. Technical Implementation Details
-6.1 Development Framework
-The application is developed using Streamlit.
-6.2 Data Storage
-Currently, data is stored in memory. It is recommended to connect to a database in the future.
-6.3 Deployment
-The application is run locally (localhost:8501).
-6.4 Date Format
-The date format used is YYYY-MM-DD, which conforms to the ISO 8601 standard.
-Annotations
-The code implementation is based on Streamlit v1.25.0.
-The date fields use the st.date_input component.
-The department field uses the st.selectbox component.
-The table is displayed using the st.dataframe component.
-All fields support keyboard shortcut input.
-The system uses local time by default to generate date values.
-It is recommended to add persistent data storage in a production environment.
+Methods to Obtain SUPABASE_URL and SUPABASE_KEY
+
+1.Create a Supabase Project
+First, you need to register an account on the Supabase official website. After logging in, click "New Project" in the upper right corner to create a new project. After filling in the project name and region, wait for a few seconds and you will enter the project console.
+Find SUPABASE_URL and SUPABASE_KEY
+After entering the console, click "Settings" → "API" in the left menu bar.
+
+2.SUPABASE_URL: It is below "Project URL" and looks like https://xxx.supabase.co. This is the "house number" of the project, which is used in the code to locate the database.
+SUPABASE_KEY: In the "API Keys" area, there are many types of keys (public key, private key, service key, etc.). Click "View Key" and you will see a long string.
+
+Steps to Configure Parameters in the Code (Taking Python as an Example)
+
+1.Install the Library
+Open the terminal and enter "pip install supabase" to install the official library.
+
+2.Import the Module and Define the Parameters
+Create a new Python file (for example, named supabase_demo.py). First, import the client creation function:
+
+from supabase import create_client
+
+Then define two variables to store the keys and the address obtained just now.
+
+# Real values obtained from the Supabase console
+SUPABASE_URL = "https://your_project_ID.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.xxxxxxxxxxxxxx"  # Service key
+
+
+3.Create the Client and Operate the Database
+Use these two parameters to create the client:
+
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+
+Next,you can operate the database! For example, operations like supabase.table("set").insert(data).execute() and querying data (such as supabase.table("set").select("*").execute()).
+
+
+
+
+CSV File Format Requirements
+
+1.File Encoding: Use UTF-8 encoding to avoid garbled Chinese characters.
+2.Field Separator: Use an English comma (,) to separate column data.
+3.Line Terminator: Use a newline character (\n). In the Windows system, it is commonly CRLF (\r\n).
+4.Header: The first row should contain column names, and the field names should be consistent with the program logic.
+5.Data Format:
+1.Numeric fields (such as dates and numbers) should conform to the format required by the program (for example, the date format is YYYY-MM-DD).
+2.If text fields contain special characters (such as commas and quotation marks), they should be enclosed in English double quotation marks (").
+
+File Placement
+
+1.Default Path:
+If there is no special specification in the program, it is recommended to place the file in the same directory as the program (that is, in the same folder as the execution file/script).
+Example path: C:\Users\YourName\Program\test.csv.
+2.Custom Path:
+If you need to specify another location, you need to clearly state the file path in the program configuration or code (such as D:\Data\PTO.csv), and ensure that the program has the read permission.
+
