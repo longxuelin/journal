@@ -1,4 +1,18 @@
 
+Usage Tutorial	使用教程
+Technical Document	技术文档
+Registration Log	登记日志
+interface	界面
+developer	开发者
+approver	批准者
+storage location	存储位置
+registration date	注册日期
+approval date	批准日期
+application	申请
+record	记录
+table	表格
+=======
+
 英文术语-中文
 
 Comma - Separated Values（CSV）     逗号分隔值
@@ -134,5 +148,6 @@ Streamlit	Streamlit		一种用于快速开发数据应用程序的开源 Python 
 审核日期 (通用)	Review Date (General)		期刊内容首次审核通过的日期（通用场景下）
 接收日期 (特定流程)	Receipt Date (Specific Process)		期刊在特定流程中的接收日期
 审核日期 (特定流程)	Review Date (Specific Process)	期刊在特定流程中的审核日期
+<!-- by 吴柳亿 -->
 
 
